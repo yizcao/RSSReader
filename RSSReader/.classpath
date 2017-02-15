@@ -14,5 +14,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/jars/rss解析-rome框架/jdom1.0.jar"/>
+	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/jars/rss解析-rome框架/rome-0.9.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

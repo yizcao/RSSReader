@@ -1,12 +1,15 @@
 package com.cyz;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import com.util.GetRSS;
 
 public class RSS_SearchAction extends HttpServlet{
 
@@ -27,13 +30,17 @@ public class RSS_SearchAction extends HttpServlet{
 		
 		RequestDispatcher dispatcher;
 		
+		GetRSS testParse = new GetRSS();
+		
 		if (flag!=null) {
 			//This request is from index.jsp, forward to Loginsucc page
 			System.out.println("FLAG is not null, forward to loginsucc.jsp");
 			dispatcher = req.getRequestDispatcher("/WEB-INF/views/loginsucc.jsp");
 			dispatcher.forward(req, resp);
 		}else {
-			RSSDriver.rssDriven(rssname);
+			List entries = testParse.parseRss();
+			
+			req.setAttribute("rsslist", entries);
 			
 			dispatcher = req.getRequestDispatcher("/WEB-INF/views/succ.jsp");
 			dispatcher.forward(req, resp);
